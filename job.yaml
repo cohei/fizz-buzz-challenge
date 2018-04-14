@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: fizz-buzz-challenge
+spec:
+  template:
+    spec:
+      containers:
+        - name: executor
+          image: asia.gcr.io/fizz-buzz-challenge/exe
+          env:
+            - name: FIZZBUZZ_CHALLENGE_URI
+              valueFrom:
+                secretKeyRef:
+                  name: fizz-buzz-challenge
+                  key: uri
+      restartPolicy: Never
+  backoffLimit: 4
