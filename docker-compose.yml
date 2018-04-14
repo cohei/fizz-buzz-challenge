@@ -1,0 +1,7 @@
+version: '3'
+services:
+  exe:
+    build: .
+    environment:
+      - FIZZBUZZ_CHALLENGE_URI
+    image: asia.gcr.io/fizz-buzz-challenge/exe
